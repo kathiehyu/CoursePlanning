@@ -28,7 +28,6 @@ public class Classes {
             }
             Scanner input = new Scanner(file);
             input.useDelimiter(",|\\n");
-            // int count = 0;
             while (input.hasNextLine()) {
                 String line = input.nextLine();
                 String[] line1 = line.split(",");
@@ -66,39 +65,24 @@ public class Classes {
      */
     public static boolean writeCourses(String fileName,
         ArrayList<Course> courses) throws FileNotFoundException {
-        //appending to a file !?!?!?!
         try {
             File sourceFile = new File(fileName);
-            // if (!sourceFile.canWrite()) {
-            //     throw new FileNotFoundException();
-            // }
-            File tempFile = new File("tempFile.csv"); //what if tempFile exists?
+            File tempFile = new File("tempFile.csv");
             PrintWriter write = new PrintWriter(tempFile);
-            // TestFile.printFile("tempFile.csv");
-            // System.out.println(sourceFile.exists());
-            // System.out.println("has next: " + scan.next());
             if (sourceFile.exists()) { //if file already exists, append
-                //check if file can be written to?
                 Scanner scan = new Scanner(sourceFile);
                 scan.useDelimiter(",|\\n");
-                // System.out.println(scan.hasNext()); //why is it false ?!?!
 
                 while (scan.hasNext()) {
                     String lines = scan.nextLine(); //scan lines in source
-                    // System.out.println("here: " + lines);
                     write.println(lines); //write to temp file
                 }
                 write.close();
-                // TestFile.printFile("tempFile.csv");
             }
-            // TestFile.printFile("tempFile.csv");
             PrintWriter pWriter = new PrintWriter(sourceFile);
-            // TestFile.printFile("tempFile.csv");
             Scanner s = new Scanner(tempFile);
-            // TestFile.printFile("tempFile.csv");
             while (s.hasNext()) {
                 String line = s.nextLine(); //scan lines in temp file
-                // System.out.println(line);
                 pWriter.println(line); //overrwrite to source file
             }
             for (Course course: courses) {
@@ -148,7 +132,7 @@ public class Classes {
     }
 
     /**
-     * main method to create and interact with courses.
+     * main method to create and interact with courses, test code.
      * @param args the main method arguments
      * @throws FileNotFoundException if a file cannot be found
      */
